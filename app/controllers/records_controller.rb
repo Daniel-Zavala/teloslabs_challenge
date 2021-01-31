@@ -1,5 +1,7 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /records or /records.json
   def index
@@ -12,7 +14,8 @@ class RecordsController < ApplicationController
 
   # GET /records/new
   def new
-    @record = Record.new
+    #@record = Record.new
+    @record = current_user.records.build
   end
 
   # GET /records/1/edit
@@ -21,7 +24,8 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    @record = Record.new(record_params)
+    #@record = Record.new(record_params)
+    @record = current_user.records.build(record_params)
 
     respond_to do |format|
       if @record.save
@@ -54,6 +58,11 @@ class RecordsController < ApplicationController
       format.html { redirect_to records_url, notice: "Record was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @record = current_user.records.find_by(id: params[:id])
+    redirect_to records_path, notice: "Not Authorized" if @record.nil?
   end
 
   private
