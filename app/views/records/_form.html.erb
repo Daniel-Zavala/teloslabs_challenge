@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :rec_id %>
-    <%= form.number_field :rec_id %>
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activity_id %>
+    <%= form.collection_select(:activity_id ,Activity.all, :id, :name) %>
   </div>
 
   <div class="field">
@@ -26,25 +31,16 @@
     <%= form.text_field :notes %>
   </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
   <div class="field form-group">
     <%= form.number_field :user_id, id: :record_user_id,
     class:"form-control", value: current_user.id, type: :hidden %>
   </div>
 
+  <!-- rec_id, not used -->
   <div class="field">
-    <%= form.label :activity_id %>
-    <%= form.number_field :activity_id %>
+    <%= form.number_field :rec_id, class:"form-control", type: :hidden %>
   </div>
-
-  <div class="field">
-    <%= form.label :activity_id %>
-    <%= form.collection_select(:activity_id ,Activity.all, :id, :name) %>
-  </div>
+  <!-- rec_id, not used -->
 
   <div class="actions">
     <%= form.submit %>

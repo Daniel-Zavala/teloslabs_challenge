@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
+  <!-- act_id, not used -->
   <div class="field">
-    <%= form.label :act_id %>
-    <%= form.number_field :act_id %>
+    <%= form.number_field :act_id, class:"form-control", type: :hidden %>
   </div>
+  <!-- act_id, not used -->
+
 
   <div class="field">
     <%= form.label :name %>

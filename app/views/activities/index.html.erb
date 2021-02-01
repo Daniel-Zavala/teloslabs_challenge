@@ -1,11 +1,10 @@
 
-
 <h1>Activities</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Act</th>
+      <th>Act id</th>
       <th>Name</th>
       <th>Description</th>
       <th colspan="3"></th>
@@ -15,7 +14,7 @@
   <tbody>
     <% @activities.each do |activity| %>
       <tr>
-        <td><%= activity.act_id %></td>
+        <td><%= activity.id %></td>
         <td><%= activity.name %></td>
         <td><%= activity.description %></td>
         <td><%= link_to 'Show', activity %></td>
