@@ -41,6 +41,11 @@
     <%= form.number_field :activity_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :activity_id %>
+    <%= form.collection_select(:activity_id ,Activity.all, :id, :name) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
