@@ -50,7 +50,7 @@
 
   <tbody>
     <% @activities.each do |activity| %>
-      <% if activity.user != current_user %>
+      <% if activity.user != current_user && activity.share %>
         <tr>
           <td><%= activity.id %></td>
           <td><%= activity.name %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_020739) do
+ActiveRecord::Schema.define(version: 2021_02_02_033413) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_020739) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "act_id"
     t.integer "user_id"
+    t.boolean "share"
     t.index ["act_id"], name: "index_activities_on_act_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_020739) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "activity_id"
+    t.boolean "share"
     t.index ["activity_id"], name: "index_records_on_activity_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
