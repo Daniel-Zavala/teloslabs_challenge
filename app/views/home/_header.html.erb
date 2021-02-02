@@ -1,25 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
   <div class="container-fluid">
-    <%= link_to "Challenge", root_path, class:"nav-link navbar-brand" %>
+    <%= link_to "Positive Habits", root_path, class:"nav-link navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Activities", activities_path, class:"nav-link" %>
-        </li>
 
         <% if user_signed_in? %>
 
         	<li class="nav-item">
 	          <%= link_to "Records", records_path, class:"nav-link" %>
 	        </li>
+
+        <li class="nav-item">
+          <%= link_to "Activities", activities_path, class:"nav-link" %>
+        </li>
 
         	<li class="nav-item">
 	          <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link" %>

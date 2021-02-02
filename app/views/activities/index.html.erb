@@ -5,10 +5,9 @@
   <table class="table table-hover table-bordered table-striped">
     <thead class="table-success">
       <tr>
-        <th>Act id</th>
         <th>Name</th>
         <th>Description</th>
-        <th>User id</th>
+        <th>Shared?</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -17,10 +16,15 @@
       <% @activities.each do |activity| %>
         <% if activity.user == current_user %>
           <tr>
-            <td><%= activity.id %></td>
             <td><%= activity.name %></td>
             <td><%= activity.description %></td>
-            <td><%= activity.user_id %></td>
+            <td>
+              <% if activity.share %>
+                &#9989;
+              <% else %>
+                &#10062;
+              <% end %>
+            </td>
             <td><%= link_to 'Show', activity %></td>
             <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
             <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,15 +39,14 @@
   <br><br><br><br>
 
   <h3>Others' Activities</h3>
-  <p>These are activities created by other users, feel free to take inspiration from them!</p>
+  <p>These are activities created and shared by other users, feel free to take inspiration from them!</p>
 
   <table class="table table-hover table-bordered table-striped">
     <thead class="table-info">
       <tr>
-        <th>Act id</th>
         <th>Name</th>
         <th>Description</th>
-        <th>User id</th>
+        <th>Shared by</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -52,10 +55,9 @@
       <% @activities.each do |activity| %>
         <% if activity.user != current_user && activity.share %>
           <tr>
-            <td><%= activity.id %></td>
             <td><%= activity.name %></td>
             <td><%= activity.description %></td>
-            <td><%= activity.user_id %></td>
+            <td><%= activity.user.email %></td>
             <td><%= link_to 'Show', activity %></td>
             <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
             <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -67,10 +69,6 @@
   <br>
 <% else %>
 
-  <h1>Welcome!</h1>
-  <br>
-  This is my project for the Telos Labs Challenge
-  <br><br>
-  Please Sign in or Sign up to start using
-  <br>
+  <%= render 'home/welcome' %>
+
 <% end %>
