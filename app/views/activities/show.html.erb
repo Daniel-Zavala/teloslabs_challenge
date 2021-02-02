@@ -1,24 +1,32 @@
 
+<div class="card" style="width: 22rem;">
+  
+  <div class="card-header">
+    <%= @activity.name %>
+  </div>
+  
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      
+      <p>
+      	<%= @activity.description %>
+      </p>
 
-<p>
-  <strong>Activity id:</strong>
-  <%= @activity.id %>
-</p>
+      <footer class="blockquote-footer">
+      	<cite title="Source Title">
+      	<% if @activity.share %>
+    		Shared!
+    	<% else %>
+    		Not Shared
+    	<% end %>
+      	</cite>
+      </footer>
 
-<p>
-  <strong>Name:</strong>
-  <%= @activity.name %>
-</p>
+    </blockquote>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @activity.description %>
-</p>
+<br>
 
-<p>
-  <strong>User:</strong>
-  <%= @activity.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<%= link_to 'Edit', edit_activity_path(@activity), class:"btn btn-success" %>
+<%= link_to 'Back', activities_path, class:"btn btn-danger" %>

@@ -12,33 +12,35 @@
   <% end %>
 
   <!-- act_id, not used -->
-  <div class="field">
+  <div class="field form-group">
     <%= form.number_field :act_id, class:"form-control", type: :hidden %>
   </div>
   <!-- act_id, not used -->
 
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control", placeholder:"What is it?" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"form-control", placeholder:"Describe it!" %>
   </div>
 
-  <div class="form-check">
-    <%= form.check_box :share, class:"form-check-input" %>
-    <label>Share?</label>
+  <br>
+  <div class="form-check form-group">
+    <%= form.check_box :share, class:"form-check-input form-control" %>
+    <label> &nbsp; Share?</label>
   </div>
+  <br>
 
   <div class="field form-group">
     <%= form.number_field :user_id, id: :activity_user_id,
     class:"form-control", value: current_user.id, type: :hidden %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-success' %>
   </div>
 <% end %>

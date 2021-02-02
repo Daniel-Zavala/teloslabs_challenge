@@ -1,68 +1,76 @@
+<% if user_signed_in? %>
 
+  <h1>My Activities</h1>
 
-<h1>My Activities</h1>
+  <table class="table table-hover table-bordered table-striped">
+    <thead class="table-success">
+      <tr>
+        <th>Act id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>User id</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table class="table table-hover table-bordered table-striped">
-  <thead class="table-success">
-    <tr>
-      <th>Act id</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @activities.each do |activity| %>
-      <% if activity.user == current_user %>
-        <tr>
-          <td><%= activity.id %></td>
-          <td><%= activity.name %></td>
-          <td><%= activity.description %></td>
-          <td><%= activity.user_id %></td>
-          <td><%= link_to 'Show', activity %></td>
-          <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-          <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+    <tbody>
+      <% @activities.each do |activity| %>
+        <% if activity.user == current_user %>
+          <tr>
+            <td><%= activity.id %></td>
+            <td><%= activity.name %></td>
+            <td><%= activity.description %></td>
+            <td><%= activity.user_id %></td>
+            <td><%= link_to 'Show', activity %></td>
+            <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+            <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
-<%= link_to 'New Activity', new_activity_path, class:"btn btn-success" %>
-<br><br><br><br>
+  <br>
+  <%= link_to 'New Activity', new_activity_path, class:"btn btn-success" %>
+  <br><br><br><br>
 
-<h3>Others' Activities</h3>
-<p>These are activities created by other users, feel free to take inspiration from them!</p>
+  <h3>Others' Activities</h3>
+  <p>These are activities created by other users, feel free to take inspiration from them!</p>
 
-<table class="table table-hover table-bordered table-striped">
-  <thead class="table-info">
-    <tr>
-      <th>Act id</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table class="table table-hover table-bordered table-striped">
+    <thead class="table-info">
+      <tr>
+        <th>Act id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>User id</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @activities.each do |activity| %>
-      <% if activity.user != current_user && activity.share %>
-        <tr>
-          <td><%= activity.id %></td>
-          <td><%= activity.name %></td>
-          <td><%= activity.description %></td>
-          <td><%= activity.user_id %></td>
-          <td><%= link_to 'Show', activity %></td>
-          <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-          <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+    <tbody>
+      <% @activities.each do |activity| %>
+        <% if activity.user != current_user && activity.share %>
+          <tr>
+            <td><%= activity.id %></td>
+            <td><%= activity.name %></td>
+            <td><%= activity.description %></td>
+            <td><%= activity.user_id %></td>
+            <td><%= link_to 'Show', activity %></td>
+            <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+            <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <br>
+<% else %>
 
-<br>
+  <h1>Welcome!</h1>
+  <br>
+  This is my project for the Telos Labs Challenge
+  <br><br>
+  Please Sign in or Sign up to start using
+  <br>
+<% end %>
