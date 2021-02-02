@@ -5,12 +5,12 @@
   <table class="table table-hover table-bordered table-striped">
     <thead class="table-success">
       <tr>
-        <th>Date</th>
+        <th><%= link_to "Date", :sort => "date"%></th>
         <!-- <th>Rec id</th> -->
         <th>Activity</th>
-        <th>Time Invested</th>
+        <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
         <th>Notes</th>
-        <th>Shared?</th>
+        <th><%= link_to "Shared?", :sort => "share DESC, date"%></th>
         <th colspan="3"></th>
       </tr>
     </thead>
