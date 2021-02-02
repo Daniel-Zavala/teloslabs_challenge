@@ -2,8 +2,8 @@
 
 <h1>My Activities</h1>
 
-<table>
-  <thead>
+<table class="table table-hover table-bordered table-striped">
+  <thead class="table-success">
     <tr>
       <th>Act id</th>
       <th>Name</th>
@@ -30,12 +30,15 @@
   </tbody>
 </table>
 
-<br><br>
+<br>
+<%= link_to 'New Activity', new_activity_path, class:"btn btn-success" %>
+<br><br><br><br>
 
-<h1>Others' Activities</h1>
+<h3>Others' Activities</h3>
+<p>These are activities created by other users, feel free to take inspiration from them!</p>
 
-<table>
-  <thead>
+<table class="table table-hover table-bordered table-striped">
+  <thead class="table-info">
     <tr>
       <th>Act id</th>
       <th>Name</th>
@@ -63,5 +66,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Activity', new_activity_path %>
