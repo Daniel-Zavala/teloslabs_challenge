@@ -1,26 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello! This is my project for the Telos Labs Challenge.
 
-Things you may want to cover:
+Positive Habits is a site wher eyou can add activities you like and record when and for how long do you practice them. You can share your activities and records with other users to bothe learn and inspire.
+
+I used:
 
 * Ruby 2.7.2
 
 * Rails 6.1.1
 
-* System dependencies
+* Devise 4.7.1
 
-* Configuration
+* Bootstrap 5.0.x
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-Daniel Zavala

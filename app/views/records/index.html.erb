@@ -1,80 +1,90 @@
 <% if user_signed_in? %>
 
-  <h1>Your Records</h1>
-  <p>You can create records where you practiced your activity and share them with other users!</p>
+  <div class="card">
+    <div class="card-body">
+      <h1>Your Records</h1>
+      <p>You can create records where you practiced your activity and share them with other users!</p>
 
-  <table class="table table-hover table-bordered table-striped">
-    <thead class="table-success">
-      <tr>
-        <th><%= link_to "Date", :sort => "date"%></th>
-        <!-- <th>Rec id</th> -->
-        <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
-        <th>Activity</th>
-        <th>Notes</th>
-        <th><%= link_to "Shared?", :sort => "share DESC, date"%></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @records.each do |record| %>
-        <% if record.user == current_user %>
+      <table class="table table-hover table-bordered table-striped">
+        <thead class="table-success">
           <tr>
-            <td><%= record.date %></td>
-            <!-- <td><%= record.id %></td> -->
-            <td><%= record.minutes %>&nbsp;minutes</td>
-            <td><%= record.activity.name %></td>
-            <td><%= record.notes %></td>
-            <td style="text-align:center">
-              <% if record.share %>
-                &#9989;
-              <% else %>
-                &#10062;
-              <% end %>
-            </td>
-            <td style="text-align:center"><%= link_to 'Show', record, class:"btn btn-success btn-sm" %></td>
+            <th><%= link_to "Date", :sort => "date"%></th>
+            <!-- <th>Rec id</th> -->
+            <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
+            <th>Activity</th>
+            <th>Notes</th>
+            <th><%= link_to "Shared?", :sort => "share DESC, date"%></th>
+            <th colspan="3"></th>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+        </thead>
 
-  <br>
-  <%= link_to 'New Record', new_record_path, class:"btn btn-success" %>
-  <br><br><br><br>
+        <tbody>
+          <% @records.each do |record| %>
+            <% if record.user == current_user %>
+              <tr>
+                <td><%= record.date %></td>
+                <!-- <td><%= record.id %></td> -->
+                <td><%= record.minutes %>&nbsp;minutes</td>
+                <td><%= record.activity.name %></td>
+                <td><%= record.notes %></td>
+                <td style="text-align:center">
+                  <% if record.share %>
+                    &#9989;
+                  <% else %>
+                    &#10062;
+                  <% end %>
+                </td>
+                <td style="text-align:center"><%= link_to 'Show', record, class:"btn btn-success btn-sm" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'New Record', new_record_path, class:"btn btn-success" %>
+      <br><br>
+    </div>
+  </div>
 
-  <h3>Others' Records</h3>
-  <p>These are records created and shared by other users, feel free to take inspiration from them!</p>
+  <!-------------------------------------------------------------------------------------------------------->
+  <br><br>
 
-  <table class="table table-hover table-bordered table-striped">
-    <thead class="table-info">
-      <tr>
-        <th><%= link_to "Date", :sort => "date"%></th>
-        <!-- <th>Rec id</th> -->
-        <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
-        <th>Activity</th>
-        <th>Notes</th>
-        <th><%= link_to "Shared by", :sort => "user_id, date"%></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <div class="card">
+    <div class="card-body">
+      <h3>Others' Records</h3>
+      <p>These are records created and shared by other users, feel free to take inspiration from them!</p>
 
-    <tbody>
-      <% @records.each do |record| %>
-        <% if record.user != current_user && record.share %>
+      <table class="table table-hover table-bordered table-striped">
+        <thead class="table-info">
           <tr>
-            <td><%= record.date %></td>
-            <!-- <td><%= record.id %></td> -->
-            <td><%= record.minutes %>&nbsp;minutes</td>
-            <td><%= record.activity.name %></td>
-            <td><%= record.notes %></td>
-            <td><%= record.user.email %></td>
-            <td style="text-align:center"><%= link_to 'Show', record, class:"btn btn-success btn-sm" %></td>
+            <th><%= link_to "Date", :sort => "date"%></th>
+            <!-- <th>Rec id</th> -->
+            <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
+            <th>Activity</th>
+            <th>Notes</th>
+            <th><%= link_to "Shared by", :sort => "user_id, date"%></th>
+            <th colspan="3"></th>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+        </thead>
+
+        <tbody>
+          <% @records.each do |record| %>
+            <% if record.user != current_user && record.share %>
+              <tr>
+                <td><%= record.date %></td>
+                <!-- <td><%= record.id %></td> -->
+                <td><%= record.minutes %>&nbsp;minutes</td>
+                <td><%= record.activity.name %></td>
+                <td><%= record.notes %></td>
+                <td><%= record.user.email %></td>
+                <td style="text-align:center"><%= link_to 'Show', record, class:"btn btn-success btn-sm" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <br>
 <% else %>
   

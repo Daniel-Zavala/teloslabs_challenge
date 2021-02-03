@@ -1,71 +1,86 @@
 <% if user_signed_in? %>
 
-  <h1>Your Activities</h1>
-  <p>You can register your activities with a small description and share them with other users!</p>
+  <div class="card">
+    <div class="card-body">
 
-  <table class="table table-hover table-bordered table-striped">
-    <thead class="table-success">
-      <tr>
-        <!-- <th>Name</th> -->
-        <th><%= link_to "Name", :sort => "name"%></th>
-        <th>Description</th>
-        <!-- <th>Shared?</th> -->
-        <th><%= link_to "Shared?", :sort => "share DESC, name"%></th>
-        <th></th>
-      </tr>
-    </thead>
+      <h1>Your Activities</h1>
+      <p>You can register your activities with a small description and share them with other users!</p>
 
-    <tbody>
-      <% @activities.each do |activity| %>
-        <% if activity.user == current_user %>
+      <table class="table table-hover table-bordered table-striped">
+        <thead class="table-success">
+
           <tr>
-            <td><%= activity.name %></td>
-            <td><%= activity.description %></td>
-            <td style="text-align:center">
-              <% if activity.share %>
-                &#9989;
-              <% else %>
-                &#10062;
-              <% end %>
-            </td>
-            <td style="text-align:center"><%= link_to 'View', activity, class:"btn btn-success btn-sm" %></td>
+            <!-- <th>Name</th> -->
+            <th><%= link_to "Name", :sort => "name"%></th>
+            <th>Description</th>
+            <!-- <th>Shared?</th> -->
+            <th><%= link_to "Shared?", :sort => "share DESC, name"%></th>
+            <th></th>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
 
-  <br>
-  <%= link_to 'New Activity', new_activity_path, class:"btn btn-success" %>
-  <br><br><br><br>
+        </thead>
+
+        <tbody>
+
+          <% @activities.each do |activity| %>
+            <% if activity.user == current_user %>
+              
+              <tr>
+                <td><%= activity.name %></td>
+                <td><%= activity.description %></td>
+                <td style="text-align:center">
+                  <% if activity.share %>
+                    &#9989;
+                  <% else %>
+                    &#10062;
+                  <% end %>
+                </td>
+                <td style="text-align:center"><%= link_to 'View', activity, class:"btn btn-success btn-sm" %></td>
+              </tr>
+
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'New Activity', new_activity_path, class:"btn btn-success" %>
+      <br><br>
+    </div>
+  </div>
 <!-------------------------------------------------------------------------------------------------------->
+  <br><br>
 
-  <h3>Others' Activities</h3>
-  <p>These are activities created and shared by other users, feel free to take inspiration from them!</p>
+  <div class="card">
+    <div class="card-body">
 
-  <table class="table table-hover table-bordered table-striped">
-    <thead class="table-info">
-      <tr>
-        <th><%= link_to "Name", :sort => "name"%></th>
-        <th>Description</th>
-        <th><%= link_to "Shared by", :sort => "user_id, name"%></th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
+    <h3>Others' Activities</h3>
+    <p>These are activities created and shared by other users, feel free to take inspiration from them!</p>
 
-    <tbody>
-      <% @activities.each do |activity| %>
-        <% if activity.user != current_user && activity.share %>
-          <tr>
-            <td><%= activity.name %></td>
-            <td><%= activity.description %></td>
-            <td><%= activity.user.email %></td>
-            <td style="text-align:center"><%= link_to 'View', activity, class:"btn btn-success btn-sm" %></td>
-          </tr>
+    <table class="table table-hover table-bordered table-striped">
+      <thead class="table-info">
+        <tr>
+          <th><%= link_to "Name", :sort => "name"%></th>
+          <th>Description</th>
+          <th><%= link_to "Shared by", :sort => "user_id, name"%></th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @activities.each do |activity| %>
+          <% if activity.user != current_user && activity.share %>
+            <tr>
+              <td><%= activity.name %></td>
+              <td><%= activity.description %></td>
+              <td><%= activity.user.email %></td>
+              <td style="text-align:center"><%= link_to 'View', activity, class:"btn btn-success btn-sm" %></td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+    </div>
+  </div>
   <br>
 <% else %>
 

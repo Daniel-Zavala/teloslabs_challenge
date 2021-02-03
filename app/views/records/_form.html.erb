@@ -13,37 +13,37 @@
 
 <li class="list-group-item">
   <div class="field form-group">
-    <%= form.label :date %>:&nbsp;
-    <%= form.date_select :date, class:"form-control" %>
+    <b><%= form.label :date %>:</b>&nbsp;
+    <%= form.date_select :date, class:"form-control",:required => true %>
     <br><br>
   </div>
 </li>
 
 <li class="list-group-item">
   <div class="field form-group">
-    <%= form.label :activity_id %>:&nbsp;
+    <b><%= form.label :activity_id %>:</b>&nbsp;
     <%= form.collection_select(:activity_id ,Activity.where(["share=true OR user_id = ?",current_user.id]), :id, :name) %>
   </div>
 </li>
 
 <li class="list-group-item">
   <div class="field form-group">
-    <%= form.label :minutes %>
-    <%= form.number_field :minutes, class:"form-control" %>
+    <b><%= form.label :minutes %></b>
+    <%= form.number_field :minutes, class:"form-control", :required => true, placeholder:"For how long?" %>
   </div>
 </li>
 
 <li class="list-group-item">
   <div class="field form-group">
-    <%= form.label :notes %>
-    <%= form.text_field :notes, class:"form-control" %>
+    <b><%= form.label :notes %></b>
+    <%= form.text_field :notes, class:"form-control", placeholder:"What was outstanding?" %>
   </div>
 </li>
 
 <li class="list-group-item">
   <div class="form-check form-group">
     <%= form.check_box :share, class:"form-check-input form-control" %>&nbsp;
-    <label>Share?</label>
+    <b>Share?</b>
   </div>
 </li>
 

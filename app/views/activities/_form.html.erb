@@ -19,14 +19,14 @@
 
 <li class="list-group-item">
   <div class="field form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class:"form-control", placeholder:"What is it?" %>
+    <b><%= form.label :name %></b>
+    <%= form.text_field :name, class:"form-control", :required => true, placeholder:"What is it?" %>
   </div>
 </li>
 
 <li class="list-group-item">
   <div class="field form-group">
-    <%= form.label :description %>
+    <b><%= form.label :description %></b>
     <%= form.text_area :description, class:"form-control", placeholder:"Describe it!" %>
   </div>
 </li>
@@ -34,7 +34,7 @@
 <li class="list-group-item">
   <div class="form-check form-group">
     <%= form.check_box :share, class:"form-check-input form-control" %>
-    <label> &nbsp; Share?</label>
+    <b> &nbsp; Share?</b>
   </div>
 </li>
 
