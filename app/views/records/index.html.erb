@@ -1,14 +1,15 @@
 <% if user_signed_in? %>
 
-  <h1>My Records</h1>
+  <h1>Your Records</h1>
+  <p>You can create records where you practiced your activity and share them with other users!</p>
 
   <table class="table table-hover table-bordered table-striped">
     <thead class="table-success">
       <tr>
         <th><%= link_to "Date", :sort => "date"%></th>
         <!-- <th>Rec id</th> -->
-        <th>Activity</th>
         <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
+        <th>Activity</th>
         <th>Notes</th>
         <th><%= link_to "Shared?", :sort => "share DESC, date"%></th>
         <th colspan="3"></th>
@@ -21,8 +22,8 @@
           <tr>
             <td><%= record.date %></td>
             <!-- <td><%= record.id %></td> -->
-            <td><%= record.activity.name %></td>
             <td><%= record.minutes %>&nbsp;minutes</td>
+            <td><%= record.activity.name %></td>
             <td><%= record.notes %></td>
             <td>
               <% if record.share %>
@@ -52,12 +53,12 @@
   <table class="table table-hover table-bordered table-striped">
     <thead class="table-info">
       <tr>
-        <th>Date</th>
+        <th><%= link_to "Date", :sort => "date"%></th>
         <!-- <th>Rec id</th> -->
+        <th><%= link_to "Time Invested", :sort => "minutes DESC, date"%></th>
         <th>Activity</th>
-        <th>Time Invested</th>
         <th>Notes</th>
-        <th>Shared by</th>
+        <th><%= link_to "Shared by", :sort => "user_id, date"%></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -68,8 +69,8 @@
           <tr>
             <td><%= record.date %></td>
             <!-- <td><%= record.id %></td> -->
-            <td><%= record.activity.name %></td>
             <td><%= record.minutes %>&nbsp;minutes</td>
+            <td><%= record.activity.name %></td>
             <td><%= record.notes %></td>
             <td><%= record.user.email %></td>
             <td><%= link_to 'Show', record %></td>
