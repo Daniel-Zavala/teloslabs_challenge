@@ -1,6 +1,14 @@
-<h1>Editing Record</h1>
+<div class="card" style="width: 30rem;">
+  <div class="card-header">
+    <h1>Editing Record</h1>
+  </div>
+  <ul class="list-group list-group-flush">
+    <%= render 'form', record: @record %>
+  </ul>
+</div>
 
-<%= render 'form', record: @record %>
+<br>
 
-<%= link_to 'Show', @record %> |
-<%= link_to 'Back', records_path %>
+<%= link_to 'Show', @record, class:"btn btn-primary" %> &nbsp;
+<td><%= link_to 'Delete', @record, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td> &nbsp;
+<%= link_to 'Back', records_path, class:"btn btn-danger" %>

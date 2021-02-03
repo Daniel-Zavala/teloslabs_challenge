@@ -17,30 +17,36 @@
   </div>
   <!-- act_id, not used -->
 
-
+<li class="list-group-item">
   <div class="field form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class:"form-control", placeholder:"What is it?" %>
   </div>
+</li>
 
+<li class="list-group-item">
   <div class="field form-group">
     <%= form.label :description %>
     <%= form.text_area :description, class:"form-control", placeholder:"Describe it!" %>
   </div>
+</li>
 
-  <br>
+<li class="list-group-item">
   <div class="form-check form-group">
     <%= form.check_box :share, class:"form-check-input form-control" %>
     <label> &nbsp; Share?</label>
   </div>
-  <br>
+</li>
 
   <div class="field form-group">
     <%= form.number_field :user_id, id: :activity_user_id,
     class:"form-control", value: current_user.id, type: :hidden %>
   </div>
-  <br>
+  
+<li class="list-group-item">
   <div class="actions">
     <%= form.submit class:'btn btn-success' %>
   </div>
+</li>
+
 <% end %>

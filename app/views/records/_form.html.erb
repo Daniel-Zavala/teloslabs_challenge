@@ -11,30 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
+<li class="list-group-item">
+  <div class="field form-group">
+    <%= form.label :date %>:&nbsp;
+    <%= form.date_select :date, class:"form-control" %>
+    <br><br>
   </div>
+</li>
 
-  <div class="field">
-    <%= form.label :activity_id %>
+<li class="list-group-item">
+  <div class="field form-group">
+    <%= form.label :activity_id %>:&nbsp;
     <%= form.collection_select(:activity_id ,Activity.where(["share=true OR user_id = ?",current_user.id]), :id, :name) %>
   </div>
+</li>
 
-  <div class="field">
+<li class="list-group-item">
+  <div class="field form-group">
     <%= form.label :minutes %>
-    <%= form.number_field :minutes %>
+    <%= form.number_field :minutes, class:"form-control" %>
   </div>
+</li>
 
-  <div class="field">
+<li class="list-group-item">
+  <div class="field form-group">
     <%= form.label :notes %>
-    <%= form.text_field :notes %>
+    <%= form.text_field :notes, class:"form-control" %>
   </div>
+</li>
 
-  <div class="form-check">
-    <%= form.check_box :share, class:"form-check-input" %>
+<li class="list-group-item">
+  <div class="form-check form-group">
+    <%= form.check_box :share, class:"form-check-input form-control" %>&nbsp;
     <label>Share?</label>
   </div>
+</li>
 
   <div class="field form-group">
     <%= form.number_field :user_id, id: :record_user_id,
@@ -47,7 +58,9 @@
   </div>
   <!-- rec_id, not used -->
 
+<li class="list-group-item">
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn btn-success'%>
   </div>
+</li>
 <% end %>

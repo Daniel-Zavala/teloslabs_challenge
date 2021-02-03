@@ -1,8 +1,7 @@
-
 <div class="card" style="width: 22rem;">
   
   <div class="card-header">
-    <%= @activity.name %>
+    <h2><%= @activity.name %><h2/>
   </div>
   
   <div class="card-body">
@@ -15,9 +14,9 @@
       <footer class="blockquote-footer">
       	<cite title="Source Title">
       	<% if @activity.share %>
-    		Shared!
+    		<span style="font-size:12px">Shared!</span>
     	<% else %>
-    		Not Shared
+    		<span style="font-size:12px">Not Shared</span>
     	<% end %>
       	</cite>
       </footer>

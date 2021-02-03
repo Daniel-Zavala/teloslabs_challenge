@@ -1,34 +1,28 @@
+<div class="card" style="width: 18rem;">
 
+  <div class="card-header">
+    <h2><%= @record.activity.name %></h2>
+  </div>
 
-<p>
-  <strong>Rec:</strong>
-  <%= @record.id %>
-</p>
+  <ul class="list-group list-group-flush">
 
-<p>
-  <strong>Minutes:</strong>
-  <%= @record.minutes %>
-</p>
+    <li class="list-group-item">On <%= @record.date %></li>
+    <li class="list-group-item">For <%= @record.minutes %> minutes</li>
+    <li class="list-group-item"><b>Notes: </b><%= @record.notes %></li>
+    <li class="list-group-item">
 
-<p>
-  <strong>Notes:</strong>
-  <%= @record.notes %>
-</p>
+      <% if @record.share %>
+        <i style="font-size:12px">Shared!</i>
+      <% else %>
+        <i style="font-size:12px">Not Shared</i>
+      <% end %>
 
-<p>
-  <strong>Date:</strong>
-  <%= @record.date %>
-</p>
+    </li>
+  </ul>
 
-<p>
-  <strong>User:</strong>
-  <%= @record.user_id %>
-</p>
+</div>
 
-<p>
-  <strong>Activity:</strong>
-  <%= @record.activity_id %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
+<%= link_to 'Edit', edit_record_path(@record), class:"btn btn-success" %>
+<%= link_to 'Back', records_path, class:"btn btn-danger" %>
