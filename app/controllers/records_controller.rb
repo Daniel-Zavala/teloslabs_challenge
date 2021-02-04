@@ -62,7 +62,7 @@ class RecordsController < ApplicationController
 
   def correct_user
     @record = current_user.records.find_by(id: params[:id])
-    redirect_to records_path, notice: "Not Authorized" if @record.nil?
+    redirect_to records_path, notice: "Sorry! This is not your Record" if @record.nil?
   end
 
   private

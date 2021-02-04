@@ -2,8 +2,8 @@
 
   <div class="card">
     <div class="card-body">
-      <h1>Your Records</h1>
-      <p>You can create records where you practiced your activity and share them with other users!</p>
+      <h1>Your Positive Habit Records</h1>
+      <p>You can create records where you practiced your Positive Habits and share them with other users!</p>
 
       <table class="table table-hover table-bordered table-striped">
         <thead class="table-success">
@@ -25,7 +25,11 @@
                 <td><%= record.date %></td>
                 <!-- <td><%= record.id %></td> -->
                 <td><%= record.minutes %>&nbsp;minutes</td>
-                <td><%= record.activity.name %></td>
+                <% if record.activity.nil? %>
+                  <td><i>This activity no longer exists</i></td>
+                <% else %>
+                  <td><%= record.activity.name %></td>
+                <% end %>
                 <td><%= record.notes %></td>
                 <td style="text-align:center">
                   <% if record.share %>
@@ -34,7 +38,7 @@
                     &#10062;
                   <% end %>
                 </td>
-                <td style="text-align:center"><%= link_to 'Show', record, class:"btn btn-success btn-sm" %></td>
+                <td style="text-align:center"><%= link_to 'View', record, class:"btn btn-success btn-sm" %></td>
               </tr>
             <% end %>
           <% end %>
@@ -74,10 +78,15 @@
                 <td><%= record.date %></td>
                 <!-- <td><%= record.id %></td> -->
                 <td><%= record.minutes %>&nbsp;minutes</td>
-                <td><%= record.activity.name %></td>
+                <!-- <td><%= record.activity.name %></td> -->
+                <% if record.activity.nil? %>
+                  <td><i>This activity no longer exists</i></td>
+                <% else %>
+                  <td><%= record.activity.name %></td>
+                <% end %>
                 <td><%= record.notes %></td>
                 <td><%= record.user.email %></td>
-                <td style="text-align:center"><%= link_to 'Show', record, class:"btn btn-success btn-sm" %></td>
+                <td style="text-align:center"><%= link_to 'View', record, class:"btn btn-success btn-sm" %></td>
               </tr>
             <% end %>
           <% end %>

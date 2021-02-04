@@ -2,7 +2,7 @@
 
 Hello! This is my project for the Telos Labs Challenge.
 
-Positive Habits is a site wher eyou can add activities you like and record when and for how long do you practice them. You can share your activities and records with other users to bothe learn and inspire.
+Positive Habits is a site where you can add activities you like, and record when and for how long do you practice them. You can share your activities and records with other users to both learn and inspire.
 
 I used:
 

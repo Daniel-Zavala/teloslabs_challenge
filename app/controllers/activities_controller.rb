@@ -62,7 +62,7 @@ class ActivitiesController < ApplicationController
 
   def correct_user
     @activity = current_user.activities.find_by(id: params[:id])
-    redirect_to activities_path, notice: "Not Authorized" if @activity.nil?
+    redirect_to activities_path, notice: "Sorry! This is not your Activity" if @activity.nil?
   end
 
   private

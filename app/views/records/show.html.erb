@@ -1,7 +1,11 @@
 <div class="card" style="width: 18rem;">
 
   <div class="card-header">
-    <h2><%= @record.activity.name %></h2>
+    <% if @record.activity.nil? %>
+      <i>This activity no longer exists</i>
+    <% else %>
+      <h2><%= @record.activity.name %></h2>
+    <% end %>
   </div>
 
   <ul class="list-group list-group-flush">
